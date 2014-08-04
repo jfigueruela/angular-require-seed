@@ -1,25 +1,23 @@
 angular-require-seed
 ====================
 
-AngularJS with requireJS scaffolding seed.
+# AngularJS with requireJS scaffolding seed.
 
-################################
-##     ENVIRONMENT SETUP      ##
-################################
-Install NPM on system 
-  sudo apt-get install npm
 
-Install Bower on system 
-  sudo npm install -g bower
+## Quick Start
 
-Install grunt on system
-  sudo npm install -g grunt-cli
+* Install NPM on system 'sudo apt-get install npm'
+* Install Bower on system 'sudo npm install -g bower'
+* Install grunt on system 'sudo npm install -g grunt-cli'
 
-###############################
-##    PROJECT DEVELOPMENT    ##
-###############################
-Run application server develop environment:
-  grunt serve
+## Development
 
-Build distribution app version
-  grunt dist
+* Install NPM on system 'sudo apt-get install npm'
+* Run application server develop environment 'grunt serve'
+  
+## Distribution
+* Run  'grunt dist'
+
+## Authors
+
+**José Figueruela**
