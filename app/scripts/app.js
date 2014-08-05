@@ -1,5 +1,9 @@
 /*jshint unused: vars */
-define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (angular, MainCtrl, AboutCtrl)/*invoke*/ {
+define(['angular',
+  'modules/home/controller',
+  'modules/about/controller',
+  'modules/contact/controller'
+]/*deps*/, function(angular)/*invoke*/ {
   'use strict';
 
   /**
@@ -11,28 +15,17 @@ define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (a
    * Main module of the application.
    */
   return angular
-    .module('codebustersJsApp', ['codebustersJsApp.controllers.MainCtrl',
-'codebustersJsApp.controllers.AboutCtrl',
-/*angJSDeps*/
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'ngRoute',
-    'ngAnimate',
-    'ngTouch'
-  ])
-    .config(function ($routeProvider) {
-      $routeProvider
-        .when('/', {
-          templateUrl: 'views/main.html',
-          controller: 'MainCtrl'
-        })
-        .when('/about', {
-          templateUrl: 'views/about.html',
-          controller: 'AboutCtrl'
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
-    });
+          .module('codebustersJsApp',
+          [
+            'HomeModule',
+            'AboutModule',
+            'ContactModule',
+            /*angJSDeps*/
+            'ngCookies',
+            'ngResource',
+            'ngSanitize',
+            'ngRoute',
+            'ngAnimate',
+            'ngTouch'
+          ]);
 });
