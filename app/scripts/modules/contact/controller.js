@@ -18,7 +18,6 @@ define([
             $log
             )
     {
-      $log.debug("DENTRO");
     }]);
 
 });

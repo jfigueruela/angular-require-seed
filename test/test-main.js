@@ -22,7 +22,13 @@ requirejs.config({
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-scenario': '../../bower_components/angular-scenario/angular-scenario',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
-    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap'
+    'angular-translate': '../../bower_components/angular-translate/angular-translate',
+    'angular-translate-loader-static-files': '../../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files',
+    'angular-translate-storage-local': '../../bower_components/angular-translate-storage-local/angular-translate-storage-local',
+    'angular-translate-storage-cookie': '../../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min',
+    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
+    text: '../../bower_components/requirejs-text/text',
+    'requirejs-text': '../../bower_components/requirejs-text/text'
   },
 
     shim: {

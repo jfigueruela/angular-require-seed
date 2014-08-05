@@ -10,9 +10,12 @@ require.config({
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-scenario': '../../bower_components/angular-scenario/angular-scenario',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
+    'angular-translate': '../../bower_components/angular-translate/angular-translate',
+    'angular-translate-loader-static-files': '../../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files',
+    'angular-translate-storage-local': '../../bower_components/angular-translate-storage-local/angular-translate-storage-local',
+    'angular-translate-storage-cookie': '../../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min',
     bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
     text: '../../bower_components/requirejs-text/text',
-    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
     'requirejs-text': '../../bower_components/requirejs-text/text'
   },
   shim: {
@@ -35,6 +38,18 @@ require.config({
       'angular'
     ],
     'angular-touch': [
+      'angular'
+    ],
+    'angular-translate': [
+      'angular'
+    ],
+    'angular-translate-loader-static-files': [
+      'angular'
+    ],
+    'angular-translate-storage-local': [
+      'angular'
+    ],
+    'angular-translate-storage-cookie': [
       'angular'
     ],
     'angular-mocks': {
@@ -64,6 +79,10 @@ require([
   'angular-resource',
   'angular-animate',
   'angular-touch',
+  'angular-translate',
+  'angular-translate-loader-static-files',
+  'angular-translate-storage-local',
+  'angular-translate-storage-cookie'
 ], function(angular, app, ngRoutes, ngCookies, ngSanitize, ngResource, ngAnimate, ngTouch) {
   'use strict';
   /* jshint ignore:start */
