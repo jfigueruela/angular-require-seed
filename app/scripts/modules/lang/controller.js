@@ -14,7 +14,8 @@ define([
         //TODO improve translation dir to relative path
         prefix: 'scripts/modules/lang/translations/',
         suffix: '.json'
-      }).preferredLanguage('es').fallbackLanguage(['es', 'en', 'de']).useLocalStorage();
+      }).preferredLanguage(getBrowserLang())
+              .fallbackLanguage(['es', 'en', 'de']).useLocalStorage();
     }]);
 
 
@@ -28,4 +29,14 @@ define([
       $scope.currentLang = $translate.use();
     });
   });
+
+  /**
+   * Get actual browser language.
+   * @returns {String}
+   */
+  function getBrowserLang() {
+    var lang = navigator.language || navigator.userLanguage;
+    var language_complete = lang.split("-");
+    return (language_complete[0]);
+  }
 });

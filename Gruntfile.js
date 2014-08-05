@@ -360,7 +360,7 @@ module.exports = function(grunt) {
       app: {
         rjsConfig: '<%= yeoman.app %>/scripts/main.js',
         options: {
-          exclude: ['requirejs', 'json3', 'es5-shim']
+          exclude: ['requirejs', 'json3', 'es5-shim','requirejs-text']
         }
       }
     },
@@ -459,7 +459,7 @@ module.exports = function(grunt) {
     'cssmin',
     // Below task commented out as r.js (via grunt-contrib-requirejs) will take care of this
     // 'uglify',
-    'filerev',
+//    'filerev',
     'usemin',
     'requirejs:dist',
     'htmlmin'

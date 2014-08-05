@@ -8,7 +8,7 @@ module.exports = function(config) {
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine', "requirejs"],
-
+    plugins : ['karma-jasmine', 'karma-phantomjs-launcher','karma-requirejs'],
     // list of files / patterns to load in the browser
     files: [
       {pattern: 'bower_components/angular/angular.js', included: false },
@@ -19,6 +19,11 @@ module.exports = function(config) {
       {pattern: 'bower_components/angular-route/angular-route.js', included: false },
       {pattern: 'bower_components/angular-animate/angular-animate.js', included: false },
       {pattern: 'bower_components/angular-touch/angular-touch.js', included: false },
+      {pattern: 'bower_components/angular-translate/angular-translate.js', included: false },
+      {pattern: 'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js', included: false },
+      {pattern: 'bower_components/angular-translate-storage-local/angular-translate-storage-local.js', included: false },
+      {pattern: 'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js', included: false },
+      {pattern: 'bower_components/requirejs-text/text.js', included: false },
       {pattern: 'app/scripts/*.js', included: false },
       {pattern: 'app/scripts/**/*.js', included: false },
       {pattern: 'test/spec/**/*.js', included: false },

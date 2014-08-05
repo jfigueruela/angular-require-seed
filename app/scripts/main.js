@@ -15,8 +15,7 @@ require.config({
     'angular-translate-storage-local': '../../bower_components/angular-translate-storage-local/angular-translate-storage-local',
     'angular-translate-storage-cookie': '../../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min',
     bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
-    text: '../../bower_components/requirejs-text/text',
-    'requirejs-text': '../../bower_components/requirejs-text/text'
+    text: '../../bower_components/requirejs-text/text'
   },
   shim: {
     angular: {
