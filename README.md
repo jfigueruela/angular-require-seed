@@ -11,7 +11,7 @@ angular-require-seed
 ## Build application
 * npm install
 * bower install
-* or execute simple build.sh batch file.
+* or execute simple builder.sh batch file.
 
 ### Development
 * Run application server develop environment 'grunt serve'
@@ -22,4 +22,4 @@ angular-require-seed
 
 
 ### Authors
-**José Figueruela jfigueruela@codebusters.es**
+**José Figueruela Fernández jfigueruela@codebusters.es**
