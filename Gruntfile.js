@@ -8,6 +8,8 @@
 // 'test/spec/**/*.js'
 
 module.exports = function(grunt) {
+  //Load node packageFile main info.
+  var packageFile = require('./package.json');
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -319,19 +321,19 @@ module.exports = function(grunt) {
             cwd: 'bower_components/bootstrap/dist',
             src: 'fonts/*',
             dest: '<%= yeoman.dist %>'
-          }]
+          }, {
+            expand: true,
+            cwd: 'bower_components/requirejs',
+            src: 'require.js',
+            dest: '<%= yeoman.dist %>/libs'
+          }
+        ]
       },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
-      },
-      requirejsDistLib: {
-        cwd: 'bower_components/requirejs',
-        src: 'require.js',
-        dest: '<%= yeoman.dist %>/libs',
-        expand: true
       }
     },
     // Run some tasks in parallel to speed up the build process
@@ -360,7 +362,7 @@ module.exports = function(grunt) {
       app: {
         rjsConfig: '<%= yeoman.app %>/scripts/main.js',
         options: {
-          exclude: ['requirejs', 'json3', 'es5-shim','requirejs-text']
+          exclude: ['requirejs', 'json3', 'es5-shim', 'requirejs-text']
         }
       }
     },
@@ -395,6 +397,7 @@ module.exports = function(grunt) {
         }
       }
     },
+    // Preprocess index.template.html
     preprocess: {
       dev: {
         src: '<%= yeoman.app %>/index.template.html',
@@ -408,6 +411,38 @@ module.exports = function(grunt) {
         src: '<%= yeoman.app %>/index.template.html',
         dest: '<%= yeoman.dist %>/index.html'
       }
+    },
+    ngconstant: {
+      // Options for all targets
+      //https://sourcegraph.com/github.com/werk85/grunt-ng-constant
+      options: {
+        wrap: '"use strict";\n\n define(["angular"], function(angular) {{%= __ngModule %}});',
+        name: 'AppModule.configuration',
+        constants: {
+          APP_INFO: {
+            'name': packageFile.name,
+            'version': packageFile.version
+          },
+          APP: grunt.file.readJSON('app/config/constants.json')
+        }
+      },
+      // Environment targets
+      dev: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/configuration.js'
+        },
+        constants: {
+          APP: grunt.file.readJSON('app/config/dev.json')
+        }
+      },
+      dist: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/configuration.js'
+        },
+        constants: {
+          APP: grunt.file.readJSON('app/config/dist.json')
+        }
+      }
     }
   });
 
@@ -418,6 +453,7 @@ module.exports = function(grunt) {
     }
 
     grunt.task.run([
+      'ngconstant:dev',
       'clean:server',
       'env:dev',
       'preprocess:dev',
@@ -454,6 +490,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngmin',
+    'ngconstant:dist',
     'copy:dist',
     'cdnify',
     'cssmin',
@@ -465,7 +502,7 @@ module.exports = function(grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('dist', ['build', 'env:dist', 'preprocess:dist', 'copy:requirejsDistLib']);
+  grunt.registerTask('dist', ['build', 'env:dist', 'preprocess:dist']);
 
   grunt.registerTask('default', [
     'newer:jshint',

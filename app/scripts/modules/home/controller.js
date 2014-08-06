@@ -6,18 +6,27 @@ define([
   './routing',
 //  './service',
 ], function(angular) {
-  angular.module('HomeModule',
+  var module = angular.module('HomeModule',
           [
-            'HomeModule.routing'
-          ])
-          .controller('HomeController', [
+            'HomeModule.routing',
+            'AppModule.configuration'
+          ]);
+
+  module.controller('HomeController', [
     '$scope',
     '$log',
+    'APP',
+    'APP_INFO',
     function(
             $scope,
-            $log
+            $log,
+            APP,
+            APP_INFO
             )
     {
+      console.log(APP.TEST_PROP)
+      $scope.envMode = APP.ENV_MODE;
+      $scope.appInfo = APP_INFO;
       $scope.awesomeThings = [
         'HTML5 Boilerplate',
         'AngularJS',

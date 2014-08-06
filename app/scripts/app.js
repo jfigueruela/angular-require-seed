@@ -1,5 +1,6 @@
 /*jshint unused: vars */
 define(['angular',
+  './configuration',
   'modules/home/controller',
   'modules/about/controller',
   'modules/contact/controller',

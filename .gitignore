@@ -1,4 +1,5 @@
 /app/index.html
+/app/scripts/configuration.js
 /node_modules
 /bower_components
 /dist
