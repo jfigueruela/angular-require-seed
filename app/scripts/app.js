@@ -1,10 +1,12 @@
 /*jshint unused: vars */
 define(['angular',
   './configuration',
+  'modules/lang/controller',
+  'modules/main/controller',
   'modules/home/controller',
   'modules/about/controller',
-  'modules/contact/controller',
-  'modules/lang/controller'
+  'modules/contact/controller'
+
 ]/*deps*/, function(angular)/*invoke*/ {
   'use strict';
 
@@ -19,10 +21,11 @@ define(['angular',
   return angular
           .module('codebustersJsApp',
           [
+            'LangModule',
+            'MainModule',
             'HomeModule',
             'AboutModule',
             'ContactModule',
-            'LangModule',
             /*angJSDeps*/
             'ngCookies',
             'ngResource',
@@ -32,17 +35,4 @@ define(['angular',
             'ngTouch',
             'pascalprecht.translate'
           ]);
-//                  .config(['$translateProvider', function($translateProvider) {
-//      $translateProvider.translations('en', {
-//        'TITLE': 'Hello',
-//        'FOO': 'This is a paragraph'
-//      });
-//
-//      $translateProvider.translations('de', {
-//        'TITLE': 'Hallo',
-//        'FOO': 'Dies ist ein Paragraph'
-//      });
-//
-//      $translateProvider.preferredLanguage('de');
-//    }]);
 });

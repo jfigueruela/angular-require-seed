@@ -27,24 +27,7 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#" translate="HOME"></a></li>
-          <li><a ng-href="#/about" translate="ABOUT"></a></li>
-          <li><a ng-href="#/contact" translate="CONTACT"></a></li>
-        </ul>
-        
-      </div>
-      <lang-directive></lang-directive>
-      <div ng-view></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+  <main-directive></main-directive>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -77,5 +60,5 @@
     <script src="libs/require.js" data-main="scripts/main.js"></script>
     <!-- @endif -->
 
-  </body>
+</body>
 </html>

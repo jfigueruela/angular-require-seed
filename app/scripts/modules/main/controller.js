@@ -2,17 +2,17 @@
 define([
   'angular',
   //Self module components
-//  './directive',
-  './routing',
+  './directive',
+//  './routing'
 //  './service',
 ], function(angular) {
-  var module = angular.module('HomeModule',
+  var module = angular.module('MainModule',
           [
-            'HomeModule.routing',
+            'Main.directive',
             'AppModule.configuration'
           ]);
 
-  module.controller('HomeController', [
+  module.controller('MainController', [
     '$scope',
     '$log',
     'APP',
@@ -24,11 +24,8 @@ define([
             APP_INFO
             )
     {
-      $scope.awesomeThings = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-      ];
+      $scope.envMode = APP.ENV_MODE;
+      $scope.appInfo = APP_INFO;
     }]);
 
 });
